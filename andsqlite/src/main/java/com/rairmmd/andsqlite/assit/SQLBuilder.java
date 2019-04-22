@@ -789,7 +789,7 @@ public class SQLBuilder {
     public static <T> ArrayList<SQLStatement> buildMappingToManySql(final Object key1,
                                                                     final EntityTable table1, final EntityTable table2,
                                                                     Collection<T> coll) throws Exception {
-        final ArrayList<SQLStatement> sqlList = new ArrayList<SQLStatement>();
+        final ArrayList<SQLStatement> sqlList = new ArrayList<>();
         // this will take 2 "?" holders
         CollSpliter.split(coll, SQLStatement.IN_TOP_LIMIT / 2, new CollSpliter.Spliter<T>() {
             @Override

@@ -323,7 +323,7 @@ public final class SingleSQLiteImpl extends AndSQLite {
                 releaseReference();
             }
         } else {
-            return new ArrayList<T>();
+            return new ArrayList<>();
         }
     }
 
@@ -338,7 +338,7 @@ public final class SingleSQLiteImpl extends AndSQLite {
         if (mTableManager.isSQLTableCreated(table.name)) {
             acquireReference();
             try {
-                SQLStatement stmt = new QueryBuilder<T>(claxx)
+                SQLStatement stmt = new QueryBuilder<>(claxx)
                         .where(table.key.column + "=?", new String[]{id})
                         .createStatement();
                 ArrayList<T> list = stmt.query(mHelper.getReadableDatabase(), claxx);

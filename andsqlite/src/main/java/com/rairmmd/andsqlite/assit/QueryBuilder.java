@@ -1,6 +1,6 @@
 package com.rairmmd.andsqlite.assit;
 
-import com.litesuits.orm.db.TableManager;
+import com.rairmmd.andsqlite.db.TableManager;
 
 import java.util.regex.Pattern;
 

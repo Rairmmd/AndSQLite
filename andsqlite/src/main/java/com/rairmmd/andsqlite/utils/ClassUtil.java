@@ -1,30 +1,26 @@
 package com.rairmmd.andsqlite.utils;
 
-import android.annotation.TargetApi;
-import android.os.Build;
-import com.litesuits.orm.db.annotation.MapCollection;
+import com.rairmmd.andsqlite.anno.MapCollection;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 /**
  * 类工具
  *
  * @author mty
- * @date 2013-6-10下午8:00:46
+ * date 2013-6-10下午8:00:46
  */
 public class ClassUtil {
 
     /**
      * 判断类是否是基础数据类型
      * 目前支持11种
-     * 在{@link com.litesuits.orm.db.utils.DataUtil#injectDataToObject} 中注入也有体现
+     * 在{@link com.rairmmd.andsqlite.utils.DataUtil#injectDataToObject} 中注入也有体现
      */
     public static boolean isBaseDataType(Class<?> clazz) {
         return clazz.isPrimitive() || clazz.equals(String.class) || clazz.equals(Boolean.class)

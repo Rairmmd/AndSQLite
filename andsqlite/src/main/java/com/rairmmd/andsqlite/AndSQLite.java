@@ -414,8 +414,7 @@ public abstract class AndSQLite extends SQLiteClosable implements DataBase {
 
     /* --------------------------------  私有方法 -------------------------------- */
     @SuppressWarnings("unchecked")
-    private <E, T> boolean keepMapping(Collection<E> col1,
-                                       Collection<T> col2) throws IllegalAccessException, InstantiationException {
+    private <E, T> boolean keepMapping(Collection<E> col1, Collection<T> col2) throws IllegalAccessException, InstantiationException {
         Class claxx1 = col1.iterator().next().getClass();
         Class claxx2 = col2.iterator().next().getClass();
         EntityTable table1 = TableManager.getTable(claxx1);
@@ -431,8 +430,7 @@ public abstract class AndSQLite extends SQLiteClosable implements DataBase {
                     } else if (fieldClass.isArray()) {
                         itemClass = FieldUtil.getComponentType(mp.field);
                     } else {
-                        throw new RuntimeException(
-                                "OneToMany and ManyToMany Relation, Must use collection or array object");
+                        throw new RuntimeException("OneToMany and ManyToMany Relation, Must use collection or array object");
                     }
                 } else {
                     itemClass = fieldClass;
@@ -513,5 +511,4 @@ public abstract class AndSQLite extends SQLiteClosable implements DataBase {
         }
         return false;
     }
-
 }
