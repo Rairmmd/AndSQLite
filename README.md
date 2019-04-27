@@ -7,3 +7,6 @@
 ```
 implementation 'com.rairmmd:andsqlite:1.0.0'
 ```
+
+用法和原作者的一致
+
