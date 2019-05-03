@@ -5,7 +5,7 @@
 由于原作者没有上传到jcenter，每次使用时都要导入jar包。此项目为jcenter版，方便导入
 
 ```
-implementation 'com.rairmmd:andsqlite:1.0.0'
+implementation 'com.rairmmd:andsqlite:1.0.1'
 ```
 
 用法和原作者的一致
