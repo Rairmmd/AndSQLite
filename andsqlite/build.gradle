@@ -1,12 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven'
 
 android {
     compileSdkVersion 28
 
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -98,3 +99,35 @@ bintray {
         publish = true
     }
 }
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives androidSourcesJar
+}
+
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: "http://localhost:8081/repository/android-maven/") {
+//                authentication(userName: "admin", password: "admin123")
+//            }
+//            pom.project {
+//                name 'andsqlite'
+//                version '1.0.1'
+//                artifactId 'andsqlite'
+//                groupId 'com.rairmmd'
+//                packaging 'aar'
+//                description 'andsqlite for android'
+//            }
+//        }
+//    }
+//}

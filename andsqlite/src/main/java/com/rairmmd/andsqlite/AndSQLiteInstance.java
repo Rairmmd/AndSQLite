@@ -18,7 +18,7 @@ public class AndSQLiteInstance {
 
     }
 
-    public void init(Context context, String dbName, boolean debugged) {
+    public static void init(Context context, String dbName, boolean debugged) {
         DataBaseConfig dataBaseConfig = new DataBaseConfig(context, dbName);
         dataBaseConfig.debugged = debugged;
         if (instance == null) {
@@ -26,11 +26,15 @@ public class AndSQLiteInstance {
         }
     }
 
-    public static AndSQLite getInstance() {
-        return instance;
+    public static void init(Context context, String dbName) {
+        DataBaseConfig dataBaseConfig = new DataBaseConfig(context, dbName);
+        dataBaseConfig.debugged = false;
+        if (instance == null) {
+            instance = AndSQLite.newSingleInstance(dataBaseConfig);
+        }
     }
 
-    public static void release() {
-        instance = null;
+    public static AndSQLite getInstance() {
+        return instance;
     }
 }
